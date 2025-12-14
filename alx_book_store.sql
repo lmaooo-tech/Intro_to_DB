@@ -7,7 +7,7 @@ CREATE TABLE Authors (
 );
 
 CREATE TABLE Books (
-    BOOK_ID INT PRIMARY KEY AUTO_INCREMENT,
+    book_id INT PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(130) NOT NULL,
     AUTHOR_ID INT NOT NULL,
     price DOUBLE NOT NULL,
@@ -29,12 +29,12 @@ CREATE TABLE Orders (
     FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)
 );
 
-CREATE TABLE Order_details (
+CREATE TABLE Order_Details (
     orderdetailid INT PRIMARY KEY AUTO_INCREMENT,
     order_id INT NOT NULL,
     book_id INT NOT NULL,
     quantity DOUBLE NOT NULL,
     FOREIGN KEY (order_id) REFERENCES Orders(order_id),
-    FOREIGN KEY (BOOK_ID) REFERENCES Books(BOOK_ID)
+    FOREIGN KEY (book_id) REFERENCES Books(book_id)
         
 );
